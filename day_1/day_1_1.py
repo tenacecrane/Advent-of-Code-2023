@@ -3,7 +3,7 @@
 def sum_all_inputs():
 
     # Read the input file
-    filepath = 'day1/data.txt'
+    filepath = 'day_1/data.txt'
     with open(filepath, 'r') as f:
         inputs = f.readlines()
 

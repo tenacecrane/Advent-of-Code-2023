@@ -15,6 +15,10 @@ for game in games:
     game = game.split(':')[1].strip()
     rounds = game.split(';')
     game_invalid = False
+    min_red = 0
+    min_green = 0
+    min_blue = 0
+    power = 0
     # print(f"Game ID: {game_id}")
     # print(game)
     # print(rounds)
@@ -27,16 +31,23 @@ for game in games:
             color = color.strip()
             if("red" in color):
                 red_count += int(color.split(' ')[0])
+                if(red_count > min_red):
+                    min_red = red_count
             elif("green" in color):
                 green_count += int(color.split(' ')[0])
+                if(green_count > min_green):
+                    min_green = green_count
             elif("blue" in color):
                 blue_count += int(color.split(' ')[0])
-        if((red_count + green_count + blue_count) > MAX_CUBES or red_count > MAX_RED or green_count > MAX_GREEN or blue_count > MAX_BLUE):
-            game_invalid = True
+                if(blue_count > min_blue):
+                    min_blue = blue_count
 
-    if(game_invalid is True):
-        continue
-    else:
-        sum += game_id
+    power = (min_red * min_green * min_blue)
+    sum += power
 
 print(sum)
+
+
+
+    
+    
